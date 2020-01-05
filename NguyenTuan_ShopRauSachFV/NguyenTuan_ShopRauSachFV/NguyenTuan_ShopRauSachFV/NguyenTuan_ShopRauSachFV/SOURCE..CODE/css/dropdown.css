@@ -1,0 +1,72 @@
+@charset "utf-8";
+ul,li {
+	margin:0;
+	border:0;
+	padding:0;
+	list-style:none;
+}
+#middlebar {
+	font-size:12px;
+	color:#3b5d14;
+	background:url(../images/bg-dropdown.jpg);
+	font-weight:bold;
+	padding:0 0 0 0;
+	height:26px;
+	width:189px;
+}
+#middlebar .menu li {
+	height:26px;
+		float:left;
+	padding:0 0 0 0;
+}
+#middlebar .menu li a {
+	color:#313131;
+	text-decoration:none;
+		height:20px;
+	width:181px;
+	display:block;
+	float:left;
+	padding:6px 0 0 10px;
+}
+#middlebar .menu li a:hover {
+	color:#666666;
+}
+#middlebar ul .submenu {
+	border:solid 1px #dddddd;
+	border-bottom:0px;
+	border-top:none;
+	background:#FFFFFF;
+	position:relative;
+	width:187px;
+	padding:0 0 0 0;
+	clear:both;
+	z-index:2;
+	display:none;
+}
+#middlebar ul .submenu li {
+	background:none;
+	display:block;
+	float:none;
+	margin:0;
+	border:0;
+	width:187px;
+	height:auto;
+	line-height:normal;
+	border-bottom:1px solid	#dddddd;
+}
+#middlebar .submenu li a {
+	background:none;
+	display:block;
+	float:none;
+	padding:6px 10px;
+	margin:0;
+	border:0;
+	height:auto;
+	width:167px;
+	color:#313131;
+	line-height:normal;
+}
+#middlebar .submenu li a:hover {
+	background:#ddeacf;
+	color: #f26332;
+}

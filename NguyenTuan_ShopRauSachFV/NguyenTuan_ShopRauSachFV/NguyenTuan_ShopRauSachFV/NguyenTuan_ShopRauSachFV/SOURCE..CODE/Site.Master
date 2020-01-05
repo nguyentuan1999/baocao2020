@@ -1,0 +1,267 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+ CodeBehind="Site.master.cs" Inherits="RAU_SACH_THANH_TRUC.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+
+    <title><asp:ContentPlaceHolder ID="vmk_ContentPlaceHolder_for_title_page" runat="server"></asp:ContentPlaceHolder></title>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="description" content="Rau sạch và Dịch vụ rau sạch"/>
+	<meta name="author" content="ManMan89"/>
+	<meta name="robots" content="all"/>
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+	
+
+	<link rel="stylesheet" type="text/css" href="css/main_style.css"/>
+	<link rel="stylesheet" type="text/css" href="css/other_style.css"/>
+	<link rel="stylesheet" type="text/css" href="css/number_slideshow.css"/>
+	<link rel="stylesheet" type="text/css" href="css/dropdown.css"/>
+	<link rel="stylesheet" type="text/css" href="css/facebox.css"/>
+	<link rel="stylesheet" type="text/css" href="css/layout.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+
+    <style type="text/css">
+        table.vmk_table_menu_danhmuc
+        {
+            width: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+        table.vmk_table_menu_danhmuc td
+        {
+            white-space: nowrap;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div id="top-bar">
+            <div class="wrap-p">
+                <asp:Panel ID="panel_box_taikhoan_thoat" runat="server" Visible="false">
+                    <i class='ico-hd-signin'></i><a href="ThongTinCaNhan.aspx" runat="server" id="label_thongtintaikhoan" style="margin-left: 0px">THÔNG TIN TÀI KHOẢN</a>
+                    <a href="Thoat.aspx"><i class="ico-hd-signup"></i>THOÁT</a>
+                </asp:Panel>
+                <asp:literal ID="vmk_box_dangky_dangnhap" runat="server" Visible="false">
+                    <a href="DangKy.aspx"><i class="ico-hd-signup"></i>ĐĂNG KÝ</a>
+                    <a href="DangNhap.aspx"><i class="ico-hd-signin"></i>ĐĂNG NHẬP</a>
+                </asp:literal>
+            </div>
+        </div>
+		<div id="hd-container" class="wrap-p">
+			<a href="Default.aspx"><div id="logo" style="background:url(images/logo2.png)"></div></a>
+			<ul>
+				<li style="width: 120px; line-height: 15px;"><a href="DiaChi.aspx"><i class="ico-hd-home" style="margin-top: -3px;"></i>&nbsp;ĐỊA CHỈ<br/><span style="color: yellow">&nbsp;MUA HÀNG</span></a></li>
+				<li style="width: 180px; line-height: 15px;"><a href="javascript:;"><i class="ico-hd-home" style="margin-top: -3px;"></i>&nbsp;GIAO HÀNG MIỄN PHÍ<br/><span style="color: yellow">&nbsp;TẠI BÌNH DƯƠNG</span></a></li>
+				<li style="width: 130px; line-height: 15px;"><a href="javascript:;"><i class="ico-hd-home" style="margin-top: -3px;"></i>&nbsp;THANH TOÁN<br/><span style="color: yellow">&nbsp;TẠI NHÀ</span></a></li>
+				<li style="width: 140px; line-height: 15px;"><a href="javascript:;"><i class="ico-hd-mobile" style="margin-top: -3px;"></i>&nbsp;ĐIỆN THOẠI<br/><span style="color: yellow">&nbsp;<asp:Label ID="label_sdt1" runat="server" Text=""></asp:Label></span></a></li>
+			</ul>
+		</div>
+		<div id="hd-container" class="wrap-p">
+			<div id="search-box">
+                <form method="get" action="TimKiem.aspx">
+			        <select name="kieu">
+				        <option value="dich_vu">DỊCH VỤ</option>
+				        <option value="san_pham" selected>SẢN PHẨM</option>
+				        <option value="ky_thuat">KỸ THUẬT</option>
+				        <option value="hoi_dap">HỎI ĐÁP</option>
+				        <option value="tin_tuc">TIN TỨC</option>
+			        </select>
+			        <input type="text" class="ipt-tf" placeholder="Hãy nhập sản phẩm bạn cần" value="" name="tu_khoa">
+			        <input type="submit" value="TÌM KIẾM" class="ipt-btn" id="btnSearch">
+                </form>
+            </div>
+		</div>
+	</div>
+
+    <form id="Form1" runat="server">
+
+    <asp:SqlDataSource ID="sql_datasource" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:VMK_CONNECTION_STRING %>" 
+        ProviderName="<%$ ConnectionStrings:VMK_CONNECTION_STRING.ProviderName %>"></asp:SqlDataSource>
+
+        <asp:Panel ID="panel_box_giohang" runat="server" Visible="false">
+            <div class="vmk_box_giohang">
+			    <div id="cart-box">
+                    <table style="width: 100%; margin-bottom: 3px;">
+                        <tr>
+                            <td style="padding: 0px; margin: 0px; white-space: nowrap">
+                                <a href="GioHang.aspx" style="margin: 0px; padding: 0px; padding-left: 10px; padding-right: 10px; width: auto">
+                                    <div class="item-count"><asp:Label ID="label_status_giohang_soluong" runat="server">0</asp:Label></div>
+                                    <i class="ico-cart"></i>
+                                    <span>&nbsp;<asp:Label ID="label_status_giohang_thanhtien" runat="server">0</asp:Label>&nbsp;<sup>đ</sup></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+			    </div>
+            </div>
+        </asp:Panel>
+
+		<div id="main-nav">
+			<div class="wrap-p">
+				<div id="main-menu">
+					<h3 class="menu-btn"><a href="Default.aspx">Sản phẩm & Dịch vụ <i class="ico-mn-arrowdown"></i></a></h3>
+					<ul id="menu-box" style="max-height: 300px;">
+                        <asp:Repeater ID="repeater_list_danhmuc" runat="server">
+                            <HeaderTemplate>
+                                <li><a href="Default.aspx"><i class="icon_tat_ca"></i>&nbsp;&nbsp;TẤT CẢ<i class="ico-mn-arrow right"></i></a></li>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <li id="vmk_menu_danh_muc" id_dm='<%# Eval("id_dm") %>'><a href="SanPham.aspx?iddm=<%# Eval("id_dm") %>"><i class="icon_rau_sach"></i>&nbsp;&nbsp;<%# Eval("ten_dm") %><i class="ico-mn-arrow right"></i></a>
+                                    <div class="sub-menu" style="width: 300px" id='vmk_sub_menu_for_danh_muc'>ĐANG NẠP DANH MỤC....<br /><br /><img src="/images/ajax-loading.gif" /></div>
+                                </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+					</ul>
+				</div>
+
+				<div id="vmk-top-menu">
+					<a href="TinTuc.aspx?id=1">GIỚI THIỆU</a>
+					<a href="DiaChi.aspx">BẢN ĐỒ</a>
+					<a href="HoiDap.aspx">HỎI ĐÁP</a>
+					<a href="TinTuc.aspx?loai=KyThuat">KỸ THUẬT</a>
+					<a href="TinTuc.aspx?loai=TinTuc">TIN TỨC</a>
+					<a href="Default.aspx">TRANG CHỦ</a>
+				</div>
+
+                <div class="vmk_top_menu_right"></div>
+			</div>
+		</div>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+		<div id="footer">
+			<div id="info" class="wrap-p">
+				<table>
+					<tr>
+						<td>
+							<ul>
+								<li><span id="title"><asp:Label ID="label_tencuahang" runat="server" Text=""></asp:Label></span></li>
+								<li>
+									<table>
+										<tr>
+											<td style="width: 100px; height: 20px;">ĐỊA CHỈ</td>
+											<td><asp:Label ID="label_diachi" runat="server" Text=""></asp:Label></td>
+										</tr>
+										<tr>
+											<td style="height: 20px;">ĐIỆN THOẠI</td>
+											<td><asp:Label ID="label_sdt" runat="server" Text=""></asp:Label></td>
+										</tr>
+										<tr>
+											<td style="height: 20px;">EMAIL</td>
+											<td><asp:Label ID="label_email" runat="server" Text=""></asp:Label></td>
+										</tr>
+									</table>
+								</li>
+								<li>
+									<a href="https://www.facebook.com" target="_blank"><img src="images/icon_fb.png"></a>
+									<a href="https://twitter.com" target="_blank"><img src="images/icon_tt.png"></a>
+									<a href="https://plus.google.com" target="_blank"><img src="images/icon_gp.png"></a>
+									<a href="https://www.youtube.com" target="_blank"><img src="images/icon_yt.png"></a>
+								</li>
+							</ul>
+						</td>
+						<td style="width: 200px">
+							<ul>
+								<li><span id="title">HỔ TRỢ KHÁCH HÀNG</span></li>
+								<li><a href="TinTuc.aspx?id=4">ĐỊA ĐIỂM PHÂN PHỐI</a></li>
+								<li><a href="TinTuc.aspx?id=5">TIN TỨC & KHUYẾN MẠI</a></li>								
+							</ul>
+						</td>
+						<td style="width: 200px">
+							<ul>
+								<li><span id="title">THÔNG TIN</span></li>
+								<li><a href="TinTuc.aspx?id=1">GIỚI THIỆU</a></li>
+								<li><a href="TinTuc.aspx?id=2">CAM KẾT CHẤT LƯỢNG</a></li>
+								<li><a href="TinTuc.aspx?id=3">CHÍNH SÁCH BÁN HÀNG</a></li>
+							</ul>
+						</td>
+						<td style="width: 200px">
+							<ul>
+								<li><span id="title">THỐNG KÊ</span></li>
+                                <li>LƯỢT XEM</li>
+								<li style="color: Yellow"><asp:Label ID="label_pageview" runat="server">0</asp:Label></li>
+								<li>ĐANG ONLINE</li>
+								<li style="color: Yellow"><%=Application["Khach_Online"].ToString()%></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<style>
+				div#footer div#info{
+					padding-top: 10px;
+					padding-bottom: 0px;
+				}
+				div#footer div#info table{
+					width: 100%;
+				}
+				div#footer div#info table td ul li{
+					padding: 3px;
+				}
+				div#footer div#info table td ul li span#title{
+					font-weight: bold;
+					color: yellow;
+				}
+			</style>
+			<div id="toTop"><img src="images/ico_top.png" alt="GO TO TOP"/></div>
+		</div>
+
+        <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+	    <script type="text/javascript" src="js/facebox.js" ></script>
+	    <script type="text/javascript" src="js/countr.js"></script>
+	    <script type="text/javascript" src="js/funcs-201403.js"></script>
+	    <script type="text/javascript" src="js/number_slideshow.js"></script>
+	    <script type="text/javascript" src="js/jquery.lazyload.js"></script>
+    </form>
+
+    <asp:ContentPlaceHolder ID="FootContent" runat="server"></asp:ContentPlaceHolder>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // XỬ LÝ MENU //
+
+            $("li#vmk_menu_danh_muc").mouseenter(function () {
+                var curr_control = this;
+                var id_dm = $(this).attr("id_dm");
+                if (id_dm.trim() != "") {
+                    $.get("api.aspx?action=get_list_dm&id_dm=" + id_dm, function (data) {
+                        if (data.trim() != "") {
+                            $(curr_control).find("div#vmk_sub_menu_for_danh_muc").html(data);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            vmk_show_giohang();
+
+            $(window).resize(function () {
+                vmk_show_giohang();
+            });
+
+            function vmk_show_giohang() {
+                if ($("div.vmk_box_giohang").css("display") == "block") {
+                    $("div.vmk_box_giohang").css("left", $(window).width() - $("div.vmk_box_giohang").width());
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

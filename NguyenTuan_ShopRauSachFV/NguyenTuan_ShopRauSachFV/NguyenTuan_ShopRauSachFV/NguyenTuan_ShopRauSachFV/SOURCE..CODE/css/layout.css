@@ -1,0 +1,83 @@
+#main fieldset {
+	border:1px dashed #81aa44;
+	padding:19px;
+	margin:0 0 10px 0;
+	background:#fbfbfb;
+}
+#main fieldset p {
+	margin:0 0 10px 0;
+	float:left;
+	width:100%;
+	color:#81aa44;
+	font-size:13px;
+}
+#main fieldset label {
+	display:block;
+	width:100%;
+	margin:0 0 7px 0;
+	line-height:12px;
+}
+#main fieldset .text-long {
+	border:1px solid #81aa44;
+	background:#fff url(img/input-shaddow.gif) no-repeat left top;
+	font:12px Arial,Helvetica,sans-serif;
+	color:#646464;
+	padding:5px 7px;
+	width:264px;
+	float:left;
+	margin:0 10px 0 0;
+}
+#main fieldset .text-medium {
+	border:1px solid #81aa44;
+	background:#fff url(img/input-shaddow.gif) no-repeat left top;
+	font:12px Arial,Helvetica,sans-serif;
+	color:#646464;
+	padding:5px 7px;
+	width:124px;
+	float:left;
+	margin:0 10px 0 0;
+}
+#main fieldset .text-small {
+	border:1px solid #81aa44;
+	background:#fff url(img/input-shaddow.gif) no-repeat left top;
+	font:11px Arial,Helvetica,sans-serif;
+	color:#646464;
+	padding:5px 7px;
+	width:44px;
+	float:left;
+	margin:0 10px 0 0;
+}
+#main fieldset .selectbox {
+	border:1px solid #81aa44;
+	background:#fff url(img/input-shaddow.gif) no-repeat left top;
+	font:12px Arial,Helvetica,sans-serif;
+	color:#646464;
+	padding:4px 7px;
+	width:250px;
+	float:left;
+	margin:0 10px 0 0;
+}
+#main fieldset .text-long:focus,#main fieldset .text-medium:focus,#main fieldset .text-small:focus,#main fieldset textarea:focus {
+	background:#fdfcf6 url(img/input-shaddow-hover.gif) no-repeat left top;
+}
+#main fieldset textarea {
+	border:1px solid #81aa44;
+	background:#fff url(img/input-shaddow.gif) no-repeat left top;
+	font:11px Arial,Helvetica,sans-serif;
+	color:#646464;
+	padding:5px 7px;
+	width:264px;
+	float:left;
+	margin:0 10px 0 0;
+	height:120px;
+	overflow:hidden;
+}
+.button-submit {
+	font:12px Arial,Helvetica,sans-serif;
+	color:#313131;
+	width:94px;
+	height:29px;
+	cursor:pointer;
+	border:none;
+	background: url(img/button-submit.gif) no-repeat left top;
+}

@@ -1,0 +1,98 @@
+body, input, textarea{
+	cursor: default;
+}
+
+textarea{
+	font-weight: normal;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+	padding: 5px;
+}
+
+input[type='checkbox'], select, input[type='file']{
+	cursor: pointer;
+}
+
+input[type='file']{
+	text-transform: uppercase;
+}
+
+.panel-heading {
+	padding: 7px;
+}
+
+.panel-heading .panel-title {
+	font-family: tahoma;
+	font-size: 14px;
+}
+
+.panel-body {
+	padding: 7px;
+}
+
+.alert {
+	padding: 10px;
+	padding-right: 30px;
+	margin-bottom: 5px;
+}
+
+.table input[type='text'] {
+	height: 23.8px;
+}
+
+table.vmk_table_form td {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+table.vmk_table_form td.title {
+	padding-right: 10px;
+	white-space: nowrap;
+	width: 1px;
+}
+
+table.vmk_table_form td.top {
+	vertical-align: text-top;
+}
+
+table.vmk_table_form td > input[type='checkbox']{
+	margin: 0px;
+	padding: 0px;
+}
+
+table.vmk_table_form td > div.checkbox {
+	margin: 0px;
+	padding: 0px;
+}
+
+table.vmk_table_form td > div.checkbox  > label > input[type='checkbox']{
+	margin-top: 2px;
+}
+
+ul.dropdown-menu li a{
+	text-decoration: none;
+}
+
+table.vmk_table_list_data td.title{
+	font-weight: bold;
+	white-space: nowrap;
+	padding-right: 5px;
+	padding-bottom: 3px;
+}
+table.vmk_table_list_data td.data{
+	padding-bottom: 3px;
+	padding-right: 5px;
+}
+table.vmk_table_list_data td.data input[type='text']{
+	border: none;
+	width: 100%;
+}
+table.vmk_table_list_data td.data input[type='checkbox']{
+	margin-top: 5px;
+}

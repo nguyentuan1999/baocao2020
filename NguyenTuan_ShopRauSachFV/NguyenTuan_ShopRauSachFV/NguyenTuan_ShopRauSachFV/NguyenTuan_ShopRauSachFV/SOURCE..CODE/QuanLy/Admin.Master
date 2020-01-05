@@ -1,0 +1,89 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+ CodeBehind="Admin.master.cs" Inherits="RAU_SACH_THANH_TRUC.Admin_SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+
+    <title><asp:ContentPlaceHolder ID="vmk_ContentPlaceHolder_for_title_page" runat="server"></asp:ContentPlaceHolder></title>
+
+    <meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="description" content="Rau sạch và Dịch vụ rau sạch"/>
+	<meta name="author" content="ManMan89"/>
+    <meta name="rating" content="general"/>
+	<meta http-equiv="Cache-Control" content="no-cache"/>
+	<meta http-equiv="Expires" content="-1"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+    <meta name="robots" content="noindex, nofollow"/>
+
+	
+
+	<link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+
+	<script type="text/javascript" src="js/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <!-- JUST FOR DEBUGGING PURPOSES. DON'T ACTUALLY COPY THESE 2 LINES! -->
+	<!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+	<script src="js/ie-emulation-modes-warning.js"></script>
+
+	<!-- HTML5 SHIM AND RESPOND.JS IE8 SUPPORT OF HTML5 ELEMENTS AND MEDIA QUERIES -->
+	<!--[if lt IE 9]>
+		<script src="js/html5shiv.min.js"></script>
+		<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- IE10 VIEWPORT HACK FOR SURFACE/DESKTOP WINDOWS 8 BUG -->
+	<script src="js/ie10-viewport-bug-workaround.js"></script>
+
+    <asp:ContentPlaceHolder ID="Admin_HeadContent" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="Form1" runat="server">
+        <nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">ManMan89</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand btn-success" href="../" target="_blank">CỬA HÀNG</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+                        <li id="menu_thongtincanhan" runat="server" visible="false"><a target="_blank" href="../ThongTinCaNhan.aspx">TT CÁ NHÂN</a></li>
+                        <li id="menu_cauhinhphanmem" runat="server" visible="false"><a href="CauHinhPhanMem.aspx">CẤU HÌNH PHẦN MỀM</a></li>
+                        <li id="menu_quanlytaikhoan" runat="server" visible="false"><a href="QuanLyTaiKhoan.aspx">QUẢN LÝ NHÂN VIÊN</a></li>
+						<li id="menu_tintuc" runat="server" visible="false"><a href="TinTuc.aspx">TIN TỨC & KỸ THUẬT</a></li>
+						<li id="menu_danhmuc" runat="server" visible="false"><a href="DanhMuc.aspx">DANH MỤC</a></li>
+						<li id="menu_donvitinh" runat="server" visible="false"><a href="DonViTinh.aspx">ĐVT</a></li>
+						<li id="menu_sanphamdichvu" runat="server" visible="false"><a href="SanPhamDichVu.aspx">SẢN PHẨM & DỊCH VỤ</a></li>
+						<li id="menu_khachhang" runat="server" visible="false"><a href="KhachHang.aspx">KHÁCH HÀNG</a></li>
+						<li id="menu_donhang" runat="server" visible="false"><a href="DonHang.aspx">ĐƠN HÀNG</a></li>
+						<li id="menu_hoidap" runat="server" visible="false"><a href="HoiDap.aspx">HỎI ĐÁP</a></li>
+						<li id="menu_hinhanh" runat="server" visible="false"><a href="FileManager.aspx">HÌNH ẢNH</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="btn-info" id="menu_thoat" runat="server"><a href="Thoat.aspx">THOÁT</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+            <asp:ContentPlaceHolder ID="Admin_MainContent" runat="server"/>
+			<div class="panel panel-default" style="white-space:nowrap">
+				<div class="panel-body">
+					<!-- ManMan89 --> &copy; 2017 - <asp:Label ID="label_tencuahang" runat="server" Text=""></asp:Label>
+				</div>
+			</div>
+		</div>
+    </form>
+</body>
+</html>
